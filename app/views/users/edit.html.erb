@@ -1,0 +1,41 @@
+<h1>ユーザー情報の編集</h1>
+<%= form_for(@user, html: {class: 'form-horizontal'}) do |f| %>
+  <% if  current_user==@user %>
+  <% end %>  
+  <% if @user.errors.present? %>
+   <div class="alert alert-danger">
+       <%= alert %>
+       <ul>
+        <% @user.errors.full_messages.each do |full_message| %>
+        <li>
+            <%= full_message %>
+        </li>
+        <% end %>
+       </ul>
+   </div>
+  <% end %>
+  
+  <div class="form-group">
+    <label for="message_name" class="col-sm-2 control-label">プロフィール</label>
+    <div class="col-sm-10">
+      <%= f.text_field :profile, class: 'form-control' %>
+    </div>
+　</div>
+  <div class="form-group">
+    <label for="message_age" class="col-sm-2 control-label">メール</label>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="message_body" class="col-sm-2 control-label">地域</label>
+    <div class="col-sm-10">
+      <%= f.text_area :area, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+<% end %>
