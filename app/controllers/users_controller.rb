@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   end
   
   def edit
+     if current_user==@user
+    else
+     redirect_to root_path  
+  　 end  
   end
   
   def update
